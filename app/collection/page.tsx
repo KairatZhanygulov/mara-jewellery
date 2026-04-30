@@ -79,35 +79,38 @@ export default function CollectionPage() {
           ))}
         </div>
       </section>
+      <section className="bg-[#f5f5f5] px-6 md:px-10 py-20 md:py-24 text-center">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-serif mb-4">
+      Categories
+    </h2>
 
-      <section className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-serif mb-3">Categories</h2>
+    <p className="text-gray-500 mb-12 md:mb-14 max-w-xl mx-auto leading-7">
+      You may tap or click on a category to browse related pieces.
+    </p>
 
-        <p className="text-gray-500 mb-10 md:mb-14">
-          You may tap or click on a category to browse related pieces.
-        </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      {categories.map((item) => (
+        <div
+          key={item.name}
+          className="group relative h-[360px] md:h-[320px] overflow-hidden bg-white cursor-pointer"
+        >
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+          />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {categories.map((item) => (
-            <div
-              key={item.name}
-              className="group relative h-[360px] md:h-[320px] overflow-hidden bg-white cursor-pointer"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-              />
+          <div className="absolute inset-0 bg-black/35 md:bg-black/0 transition duration-500 md:group-hover:bg-black/45"></div>
 
-              <div className="absolute inset-0 bg-black/35 md:bg-black/0 transition duration-500 md:group-hover:bg-black/45"></div>
-
-              <h3 className="absolute inset-0 flex items-center justify-center text-3xl font-serif text-white opacity-100 md:opacity-0 transition duration-500 md:group-hover:opacity-100 drop-shadow-lg">
-                {item.name}
-              </h3>
-            </div>
-          ))}
+          <h3 className="absolute inset-0 flex items-center justify-center text-3xl font-serif text-white opacity-100 md:opacity-0 transition duration-500 md:group-hover:opacity-100 drop-shadow-lg">
+            {item.name}
+          </h3>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       <Footer />
     </main>
